@@ -16,7 +16,7 @@ namespace PokerHands_I
                 {
                     Suit = x.Substring(x.Length - 1, 1),
                     Value = Convert.ToInt16(x.Substring(0, x.Length - 1))
-                });
+                }).OrderBy(c => c.Value);
 
             this.Dealt();
         }
@@ -24,7 +24,16 @@ namespace PokerHands_I
         private void Dealt()
         {
             this.Type = ResultType.Flush;
+            if (IsStraight())
+            {
+                this.Type = ResultType.StraightFlush;
+            }
             this.MaxCardNum = _cards.Max(c => c.Value);
+        }
+
+        private bool IsStraight()
+        {
+            return _cards.Max(c => c.Value) - _cards.Min(c => c.Value) == 4;
         }
 
         public ResultType Type { get; set; }
