@@ -56,6 +56,7 @@
     <Compile Include="PokerHand.cs" />
     <Compile Include="ResultType.cs" />
     <Compile Include="StraightHandler.cs" />
+    <Compile Include="ThreeOfAKindHandler.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

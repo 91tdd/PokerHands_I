@@ -2,6 +2,7 @@
 {
     public enum ResultType
     {
+        ThreeOfAKind,
         Straight,
         Flush,
         FullHouse,

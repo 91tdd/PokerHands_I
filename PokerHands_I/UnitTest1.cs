@@ -35,6 +35,11 @@ namespace PokerHands_I
             PokerResultShouldBe("3D,3C,3H,3S,6S", ResultType.FourOfAKind, 3);
         }
 
+        [TestMethod]
+        public void Three_Of_A_Kind()
+        {
+            PokerResultShouldBe("3D,3C,3H,4D,6S", ResultType.ThreeOfAKind, 3);
+        }
         private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumbere)
         {
             PokerHand pokerHand = new PokerHand(cards);
