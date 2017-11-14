@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="FullHouseHandler.cs" />
     <Compile Include="PokerHandler.cs" />
     <Compile Include="IPokerHandler.cs" />
     <Compile Include="PokerHand.cs" />
