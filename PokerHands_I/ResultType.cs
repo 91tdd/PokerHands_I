@@ -2,6 +2,7 @@
 {
     public enum ResultType
     {
+        HighCard,
         Pair,
         TwoPair,
         ThreeOfAKind,
