@@ -53,6 +53,9 @@
     <Compile Include="FullHouseHandler.cs" />
     <Compile Include="HighCardHandler.cs" />
     <Compile Include="PairHandler.cs" />
+    <Compile Include="PokerHandComparer.cs" />
+    <Compile Include="PokerHandComparerTest.cs" />
+    <Compile Include="PokerHandGame.cs" />
     <Compile Include="PokerHandler.cs" />
     <Compile Include="IPokerHandler.cs" />
     <Compile Include="PokerHand.cs" />
