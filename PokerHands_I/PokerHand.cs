@@ -27,11 +27,7 @@ namespace PokerHands_I
 
         private void Dealt()
         {
-            var pokerHandlers = new List<IPokerHandler>
-            {
-                new FlushHandler(this),
-                new StraightHandler(this)
-            };
+            var pokerHandlers = GetPokerHandlers();
 
             foreach (var pokerHandler in pokerHandlers)
             {
@@ -41,6 +37,16 @@ namespace PokerHands_I
                     return;
                 }
             }
+        }
+
+        private List<IPokerHandler> GetPokerHandlers()
+        {
+            var pokerHandlers = new List<IPokerHandler>
+            {
+                new FlushHandler(this),
+                new StraightHandler(this)
+            };
+            return pokerHandlers;
         }
     }
 }
