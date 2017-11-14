@@ -48,6 +48,7 @@ namespace PokerHands_I
                 new FullHouseHandler(this),
                 new StraightHandler(this),
                 new ThreeOfAKindHandler(this),
+                new TwoPairHandler(this),
             };
             return pokerHandlers;
         }
