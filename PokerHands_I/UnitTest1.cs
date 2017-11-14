@@ -8,9 +8,14 @@ namespace PokerHands_I
         [TestMethod]
         public void Flush()
         {
-            PokerHand pokerHand = new PokerHand("2D,3D,4D,5D,7D");
-            Assert.AreEqual(ResultType.Flush, pokerHand.Type);
-            Assert.AreEqual(7, pokerHand.MaxCardNum);
+            PokerResultShouldBe("2D,3D,4D,5D,7D", ResultType.Flush, 7);
+        }
+
+        private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumbere)
+        {
+            PokerHand pokerHand = new PokerHand(cards);
+            Assert.AreEqual(resultType, pokerHand.Type);
+            Assert.AreEqual(expectedMaxNumbere, pokerHand.MaxCardNum);
         }
     }
 }
