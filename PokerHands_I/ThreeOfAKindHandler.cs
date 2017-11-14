@@ -16,7 +16,7 @@ namespace PokerHands_I
 
         public bool IsMatch()
         {
-            return _cardsGroupByValue.Any(x => x.Count() == 3);
+            return _cardsGroupByValue.Any(x => x.Count() == 3) && _cardsGroupByValue.Count() == 3;
         }
 
         public void SetResult()
