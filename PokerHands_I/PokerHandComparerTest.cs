@@ -43,6 +43,12 @@ namespace PokerHands_I
             OutputShouldBe("2D,3D,6D,10D,8D", "QS,10S,9S,3S,2S", "White Win. -with flush: Queen");
         }
 
+        [TestMethod]
+        public void straight_compare_with_Ace()
+        {
+            OutputShouldBe("2D,3D,4D,5D,AS", "QS,10S,9H,JS,KH", "Black Win. -with straight: Ace");
+        }
+
         private void OutputShouldBe(string firstPlayerCards, string secondPlayerCards, string expected)
         {
             pokerHandGame.Play(firstPlayerCards, secondPlayerCards);
