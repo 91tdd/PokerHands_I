@@ -23,6 +23,12 @@ namespace PokerHands_I
             PokerResultShouldBe("3D,2D,4H,5D,6D", ResultType.Straight, 6);
         }
 
+        [TestMethod]
+        public void FullHouse()
+        {
+            PokerResultShouldBe("3D,2D,3H,3S,2S", ResultType.FullHouse, 3);
+        }
+
         private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumbere)
         {
             PokerHand pokerHand = new PokerHand(cards);

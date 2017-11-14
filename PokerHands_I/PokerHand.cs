@@ -21,7 +21,7 @@ namespace PokerHands_I
             this.Dealt();
         }
 
-        public int MaxCardNum { get; set; }
+        public short MaxCardNum { get; set; }
 
         public ResultType Type { get; set; }
 
@@ -44,9 +44,34 @@ namespace PokerHands_I
             var pokerHandlers = new List<IPokerHandler>
             {
                 new FlushHandler(this),
+                new FullHouseHandler(this),
                 new StraightHandler(this)
             };
             return pokerHandlers;
+        }
+    }
+
+    internal class FullHouseHandler : IPokerHandler
+    {
+        private readonly PokerHand _pokerHand;
+
+        public FullHouseHandler(PokerHand pokerHand)
+        {
+            _pokerHand = pokerHand;
+        }
+
+        public bool IsMatch()
+        {
+            var cardsGroupByValue = _pokerHand._cards.GroupBy(c => c.Value);
+            var hasThreeCardSameValue = cardsGroupByValue.Any(x => x.Count() == 3);
+            var hasTwoCardSameValue = cardsGroupByValue.Any(x => x.Count() == 2);
+            return hasTwoCardSameValue && hasThreeCardSameValue;
+        }
+
+        public void SetResult()
+        {
+            _pokerHand.Type = ResultType.FullHouse;
+            _pokerHand.MaxCardNum = _pokerHand._cards.GroupBy(c => c.Value).First(x => x.Count() == 3).Key;
         }
     }
 }

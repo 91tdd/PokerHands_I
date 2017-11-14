@@ -4,6 +4,7 @@
     {
         Straight,
         Flush,
+        FullHouse,
         StraightFlush,
     }
 }
