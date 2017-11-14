@@ -17,6 +17,12 @@ namespace PokerHands_I
             PokerResultShouldBe("3D,2D,4D,5D,6D", ResultType.StraightFlush, 6);
         }
 
+        [TestMethod]
+        public void Straight()
+        {
+            PokerResultShouldBe("3D,2D,4H,5D,6D", ResultType.Straight, 6);
+        }
+
         private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumbere)
         {
             PokerHand pokerHand = new PokerHand(cards);

@@ -2,7 +2,8 @@
 {
     public enum ResultType
     {
+        Straight,
         Flush,
-        StraightFlush
+        StraightFlush,
     }
 }
