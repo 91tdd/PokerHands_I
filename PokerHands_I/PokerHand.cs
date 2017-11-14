@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace PokerHands_I
@@ -8,6 +7,23 @@ namespace PokerHands_I
     {
         public IEnumerable<Card> _cards;
 
+        private Dictionary<string, short> valueLookup = new Dictionary<string, short>
+            {
+                {"2", 2},
+                {"3", 3},
+                {"4", 4},
+                {"5", 5},
+                {"6", 6},
+                {"7", 7},
+                {"8", 8},
+                {"9", 9},
+                {"10", 10},
+                {"J", 11},
+                {"Q", 12},
+                {"K", 13},
+                {"A", 14},
+            };
+
         public PokerHand(string cardsContent)
         {
             this._cards = cardsContent.Split(',')
@@ -15,7 +31,7 @@ namespace PokerHands_I
                 new Card
                 {
                     Suit = x.Substring(x.Length - 1, 1),
-                    Value = Convert.ToInt16(x.Substring(0, x.Length - 1))
+                    Value = valueLookup[x.Substring(0, x.Length - 1)]
                 }).OrderBy(c => c.Value);
 
             this.Dealt();
