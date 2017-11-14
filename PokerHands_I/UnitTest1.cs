@@ -40,6 +40,13 @@ namespace PokerHands_I
         {
             PokerResultShouldBe("3D,3C,3H,4D,6S", ResultType.ThreeOfAKind, 3);
         }
+
+        [TestMethod]
+        public void TwoPair()
+        {
+            PokerResultShouldBe("3D,3C,4H,4D,6S", ResultType.TwoPair, 4);
+        }
+
         private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumbere)
         {
             PokerHand pokerHand = new PokerHand(cards);
