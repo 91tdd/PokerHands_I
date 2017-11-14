@@ -60,6 +60,10 @@ namespace PokerHands_I
             var winnerName = WinnerName(compareResult);
             var winnerType = WinnerType(firstPlayerPokerHand, secondPlayerPokerHand, compareResult);
             var winnerValue = WinnerValue(firstPlayerPokerHand, secondPlayerPokerHand, compareResult);
+            if (firstPlayerPokerHand.Type != secondPlayerPokerHand.Type)
+            {
+                return $"{winnerName} Win. -with {winnerType}";
+            }
             return $"{winnerName} Win. -with {winnerType}: {winnerValue}";
         }
 

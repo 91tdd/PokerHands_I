@@ -11,11 +11,7 @@ namespace PokerHands_I
                 return x.Type - y.Type;
             }
 
-            if (x.Type == ResultType.HighCard)
-            {
-                return x.MaxCardNum - y.MaxCardNum;
-            }
-            return 0;
+            return x.MaxCardNum - y.MaxCardNum;
         }
     }
 }
