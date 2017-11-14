@@ -44,6 +44,7 @@ namespace PokerHands_I
             var pokerHandlers = new List<IPokerHandler>
             {
                 new FlushHandler(this),
+                new FourOfAKindHandler(this),
                 new FullHouseHandler(this),
                 new StraightHandler(this)
             };
