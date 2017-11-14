@@ -77,6 +77,12 @@ namespace PokerHands_I
             PokerResultShouldBe("10D,JC,KH,QD,AS", ResultType.Straight, 14);
         }
 
+        [TestMethod]
+        public void Straight_A2345()
+        {
+            PokerResultShouldBe("2D,4C,3H,5D,AS", ResultType.Straight, 14);
+        }
+
         private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumbere)
         {
             PokerHand pokerHand = new PokerHand(cards);
