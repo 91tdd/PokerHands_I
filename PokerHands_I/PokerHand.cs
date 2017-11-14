@@ -6,7 +6,7 @@ namespace PokerHands_I
 {
     public class PokerHand
     {
-        private IEnumerable<Card> _cards;
+        public IEnumerable<Card> _cards;
 
         public PokerHand(string cardsContent)
         {
@@ -23,33 +23,25 @@ namespace PokerHands_I
 
         private void Dealt()
         {
-            this.MaxCardNum = _cards.Max(c => c.Value);
-            if (IsFlush())
+            if (new FlushHandler(this).IsFlush())
             {
-                if (IsStraight())
+                if (new StraightHandler(this).IsStraight())
                 {
                     this.Type = ResultType.StraightFlush;
+                    this.MaxCardNum = _cards.Max(c => c.Value);
                     return;
                 }
                 this.Type = ResultType.Flush;
+                this.MaxCardNum = _cards.Max(c => c.Value);
                 return;
             }
 
-            if (IsStraight())
+            if (new StraightHandler(this).IsStraight())
             {
                 this.Type = ResultType.Straight;
+                this.MaxCardNum = _cards.Max(c => c.Value);
                 return;
             }
-        }
-
-        private bool IsFlush()
-        {
-            return _cards.All(c => c.Suit == _cards.First().Suit);
-        }
-
-        private bool IsStraight()
-        {
-            return _cards.Max(c => c.Value) - _cards.Min(c => c.Value) == 4;
         }
 
         public ResultType Type { get; set; }

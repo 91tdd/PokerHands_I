@@ -48,8 +48,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlushHandler.cs" />
     <Compile Include="PokerHand.cs" />
     <Compile Include="ResultType.cs" />
+    <Compile Include="StraightHandler.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
