@@ -50,6 +50,7 @@ namespace PokerHands_I
                 new ThreeOfAKindHandler(this),
                 new TwoPairHandler(this),
                 new PairHandler(this),
+                new HighCardHandler(this),
             };
             return pokerHandlers;
         }

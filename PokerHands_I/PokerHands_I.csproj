@@ -51,6 +51,7 @@
     <Compile Include="Card.cs" />
     <Compile Include="FourOfAKindHandler.cs" />
     <Compile Include="FullHouseHandler.cs" />
+    <Compile Include="HighCardHandler.cs" />
     <Compile Include="PairHandler.cs" />
     <Compile Include="PokerHandler.cs" />
     <Compile Include="IPokerHandler.cs" />
