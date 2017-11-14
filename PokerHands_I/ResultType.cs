@@ -2,6 +2,7 @@
 {
     public enum ResultType
     {
+        Pair,
         TwoPair,
         ThreeOfAKind,
         Straight,
