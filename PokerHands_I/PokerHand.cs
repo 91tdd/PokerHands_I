@@ -23,12 +23,28 @@ namespace PokerHands_I
 
         private void Dealt()
         {
-            this.Type = ResultType.Flush;
+            this.MaxCardNum = _cards.Max(c => c.Value);
+            if (IsFlush())
+            {
+                if (IsStraight())
+                {
+                    this.Type = ResultType.StraightFlush;
+                    return;
+                }
+                this.Type = ResultType.Flush;
+                return;
+            }
+
             if (IsStraight())
             {
-                this.Type = ResultType.StraightFlush;
+                this.Type = ResultType.Straight;
+                return;
             }
-            this.MaxCardNum = _cards.Max(c => c.Value);
+        }
+
+        private bool IsFlush()
+        {
+            return _cards.All(c => c.Suit == _cards.First().Suit);
         }
 
         private bool IsStraight()
