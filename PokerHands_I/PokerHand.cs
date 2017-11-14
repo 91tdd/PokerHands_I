@@ -21,36 +21,26 @@ namespace PokerHands_I
             this.Dealt();
         }
 
-        private void Dealt()
-        {
-            if (new FlushHandler(this).IsFlush())
-            {
-                if (new StraightHandler(this).IsStraight())
-                {
-                    this.Type = ResultType.StraightFlush;
-                    this.MaxCardNum = _cards.Max(c => c.Value);
-                    return;
-                }
-                this.Type = ResultType.Flush;
-                this.MaxCardNum = _cards.Max(c => c.Value);
-                return;
-            }
-
-            if (new StraightHandler(this).IsStraight())
-            {
-                this.Type = ResultType.Straight;
-                this.MaxCardNum = _cards.Max(c => c.Value);
-                return;
-            }
-        }
+        public int MaxCardNum { get; set; }
 
         public ResultType Type { get; set; }
-        public int MaxCardNum { get; set; }
-    }
 
-    public class Card
-    {
-        public string Suit { get; set; }
-        public Int16 Value { get; set; }
+        private void Dealt()
+        {
+            var pokerHandlers = new List<IPokerHandler>
+            {
+                new FlushHandler(this),
+                new StraightHandler(this)
+            };
+
+            foreach (var pokerHandler in pokerHandlers)
+            {
+                if (pokerHandler.IsMatch())
+                {
+                    pokerHandler.SetResult();
+                    return;
+                }
+            }
+        }
     }
 }

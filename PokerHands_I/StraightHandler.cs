@@ -2,7 +2,7 @@
 
 namespace PokerHands_I
 {
-    public class StraightHandler
+    public class StraightHandler : IPokerHandler
     {
         private PokerHand _pokerHand;
 
@@ -11,9 +11,15 @@ namespace PokerHands_I
             _pokerHand = pokerHand;
         }
 
-        public bool IsStraight()
+        public bool IsMatch()
         {
             return _pokerHand._cards.Max(c => c.Value) - _pokerHand._cards.Min(c => c.Value) == 4;
+        }
+
+        public void SetResult()
+        {
+            _pokerHand.Type = ResultType.Straight;
+            _pokerHand.MaxCardNum = _pokerHand._cards.Max(c => c.Value);
         }
     }
 }

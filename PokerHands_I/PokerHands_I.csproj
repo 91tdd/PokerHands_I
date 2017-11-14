@@ -48,7 +48,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FlushHandler.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="PokerHandler.cs" />
+    <Compile Include="IPokerHandler.cs" />
     <Compile Include="PokerHand.cs" />
     <Compile Include="ResultType.cs" />
     <Compile Include="StraightHandler.cs" />
