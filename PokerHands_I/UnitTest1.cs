@@ -59,6 +59,12 @@ namespace PokerHands_I
             PokerResultShouldBe("8D,3C,7H,10D,6S", ResultType.HighCard, 10);
         }
 
+        [TestMethod]
+        public void HighCard_With_KQJ()
+        {
+            PokerResultShouldBe("2D,QC,KH,JD,6S", ResultType.HighCard, 13);
+        }
+
         private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumbere)
         {
             PokerHand pokerHand = new PokerHand(cards);
