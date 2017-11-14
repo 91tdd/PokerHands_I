@@ -27,21 +27,7 @@ namespace PokerHands_I
 
         private void Dealt()
         {
-            var pokerHandlers = GetPokerHandlers();
-
-            foreach (var pokerHandler in pokerHandlers)
-            {
-                if (pokerHandler.IsMatch())
-                {
-                    pokerHandler.SetResult();
-                    return;
-                }
-            }
-        }
-
-        private List<IPokerHandler> GetPokerHandlers()
-        {
-            var pokerHandlers = new List<IPokerHandler>
+            new List<IPokerHandler>
             {
                 new FlushHandler(this),
                 new FourOfAKindHandler(this),
@@ -51,8 +37,7 @@ namespace PokerHands_I
                 new TwoPairHandler(this),
                 new PairHandler(this),
                 new HighCardHandler(this),
-            };
-            return pokerHandlers;
+            }.First(x => x.IsMatch()).SetResult();
         }
     }
 }
