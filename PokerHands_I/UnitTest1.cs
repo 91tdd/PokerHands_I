@@ -83,11 +83,11 @@ namespace PokerHands_I
             PokerResultShouldBe("2D,4C,3H,5D,AS", ResultType.Straight, 14);
         }
 
-        private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumbere)
+        private static void PokerResultShouldBe(string cards, ResultType resultType, int expectedMaxNumber)
         {
             PokerHand pokerHand = new PokerHand(cards);
             Assert.AreEqual(resultType, pokerHand.Type);
-            Assert.AreEqual(expectedMaxNumbere, pokerHand.MaxCardNum);
+            Assert.AreEqual(expectedMaxNumber, pokerHand.MaxCardNum);
         }
     }
 }
